@@ -8,9 +8,7 @@ function App() {
   return (
     <div>
       <Header />
-
       <Navbar />
-      <Login />
     </div>
   );
 }
