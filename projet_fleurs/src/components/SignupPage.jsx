@@ -2,12 +2,13 @@ import React from "react";
 import Header from "./Header";
 import SignupForms from "./SignupForms"
 
-const Signup = () => {
+const SignupPage = () => {
     return <div>
         <Header />
+        {/* add navbar */}
         <SignupForms />
         {/* add footer */}
     </div>
 }
 
-export default Signup;
+export default SignupPage;
