@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const SignupForms = () => {
+const InscriptionForms = () => {
 
     // states
     const {register, handleSubmit} = useForm();
@@ -11,7 +11,6 @@ const SignupForms = () => {
     // ATTENTION: avec 'required: true', le formulaire ne se valide pas si un champ est manquant
 
     // A FAIRE : voir comment récupérer les données, comparer le mot de passe, alerte si mot de passe erronné, envoi à l'API
-    
 
     // affichage
     return(
@@ -51,4 +50,4 @@ const SignupForms = () => {
 </div>
     )}
 
-export default SignupForms;
+export default InscriptionForms;
