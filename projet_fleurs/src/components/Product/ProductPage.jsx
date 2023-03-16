@@ -1,8 +1,13 @@
 import React from "react";
 import ArticlePhoto from "./Article-components/ArticlePhoto";
 import ArticleText from "./Article-components/ArticleText";
-
+import { useParams } from "react-router-dom";
 const ProductPage = () => {
+  
+  // affiche valeur de uid
+  let {uid} = useParams();
+  
+
   return (
     <div>
       <div id="container" className="w-full flex">
