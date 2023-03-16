@@ -3,6 +3,18 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import { redirect } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import ConnectionPage from "../../Connection/ConnectionPage";
+
+function RedirectReactRouterExample() {
+  return (
+    <Routes>
+       <Route path="connexion" element={<ConnectionPage />} />
+    </Routes>
+  );
+}
+
 // on définit un "schéma" pour utiliser la librairie yup afin de récupérer les données du formulaire
 const schema = yup.object().shape({
     // .required : le formulaire ne se valide pas si le champ n'est pas rempli
@@ -15,22 +27,35 @@ const schema = yup.object().shape({
     // minimum 4 caractères, maximum 15
     password: yup.string().min(4).max(15).required(),
     // confirmation : yup vérifie si la confirmation correspond au mot de passe saisi par l'utilisateur
-    // passwordCheck: yup.string().required()
     passwordCheck: yup.string().oneOf([yup.ref("password"), null]).required()
 })
 
 const InscriptionForms = () => {
-
-    // UseForm utilisant le résolveur Yup
-    const { register, handleSubmit, formState: {errors}, reset } = useForm({
+    
+    // UseForm utilisant le résolveur Yup pour le traitement du formulaire
+    const { register, handleSubmit, formState: {errors} } = useForm({
         resolver: yupResolver(schema)
     });
 
+    
+    // fonction pour chiffrer le mot de passe avec sha256
+    const hash = (pwd) => {
+        // FONCTION A ECRIRE (TROUVER LIBRAIRIE DE HASH)
+    }
+
+
+   
     const onSubmitHandler = (data) => {
         console.log({data});
+       
+        // Insérer le hash du mot de passe
+
+        // Requête à l'API à coder
+
+        // Redirection vers la page connexion... A REFAIRE
+        redirect('/connexion', { replace: true });
     }
-  
-    // comportements
+
    
     
     // affichage
@@ -74,8 +99,12 @@ const InscriptionForms = () => {
             <p>{errors.passwordCheck && "Les mots de passe saisis ne correspondent pas"}</p>
         </label>
 
+
         <button type="submit" className="border bg-green-600 m-10 w-25 hover:shadow-xl">Je crée mon compte</button>
+        
+
     </form>
+    
 </div>
     )}
 
