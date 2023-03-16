@@ -29,7 +29,7 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed left-0 top-0 w-[20%] h-full border-r border-r-gray-900 bg-[#b4d6b4] ease-in-out duration 500"
+            ? "fixed left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-[#b4d6b4] ease-in-out duration 500"
             : "fixed left-[-100%]"
         }
       >
