@@ -1,6 +1,8 @@
 import React from "react";
 import Logo from "../../img/logo_720.jpg";
 import { Link } from "react-router-dom";
+import Navbar from "./HeaderComponent/Navbar";
+import Banner from "./HeaderComponent/Banner";
 const Header = () => {
   return (
     <>
@@ -20,7 +22,10 @@ const Header = () => {
 
           </ul>
         </div>
+
       </header>
+      <Banner />
+      <Navbar />
     </>
   );
 };
