@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import Product from "./components/Product/Product";
-import Basket from "./components/Basket/Basket";
-import Inscription from "./components/Inscription/Inscription";
-import Connection from "./components/Connection/Connection";
+import HomePage from "./components/Home/HomePage";
+import ProductPage from "./components/Product/ProductPage";
+import BasketPage from "./components/Basket/BasketPage";
+import InscriptionPage from "./components/Inscription/InscriptionPage";
+import ConnectionPage from "./components/Connection/ConnectionPage";
 import Footer from "./components/Footer/Footer";
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
     <div>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/produit/:id" element={<Product />} />
-        <Route path="/panier/:id" element={<Basket />} />
-        <Route path="/inscription" element={<Inscription />} />
-        <Route path="/conexion" element={<Connection />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/produit/:id" element={<ProductPage />} />
+        <Route path="/panier/:id" element={<BasketPage />} />
+        <Route path="/inscription" element={<InscriptionPage />} />
+        <Route path="/connexion" element={<ConnectionPage />} />
       </Routes>
       <Footer />
     </div>

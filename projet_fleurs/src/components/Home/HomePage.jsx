@@ -34,7 +34,7 @@ const products = [
 ]
 
 
-const Home = () =>{
+const HomePage = () =>{
     return(
         <>
          <div className="w-full mt-6 pl-[130px] pr-[130px] justify-items-center  grid grid-cols-3 gap-x-8">
@@ -54,4 +54,4 @@ const Home = () =>{
 
 }
 
-export default Home;
+export default HomePage;

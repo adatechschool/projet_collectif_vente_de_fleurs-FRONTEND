@@ -1,5 +1,5 @@
 import React from 'react'
-import Products from "../Basket/Products/Products";
+import Products from "./Products/Products";
 const products = [
     {
         img:"https://kokomo.fr/wp-content/uploads/2023/02/groupon-1-scaled.jpg.webp",
@@ -15,7 +15,7 @@ const products = [
   }
 ]
 
-export default function Basket() {
+export default function BasketPage() {
   return (
     <div className='w-full flex justify-center mt-[30px] items-center flex-col'>
       <h1>page panier</h1>
