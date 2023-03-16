@@ -1,19 +1,11 @@
-import React from "react";
-import Logo from "../img/logo_720.jpg";
+import React from 'react';
+import Logo from '../img/logo_720.jpg';
 
 const Header = () => {
   return (
-    <>
-      <header className="border flex justify-between">
-        <div>
-          {" "}
-          <img src={Logo} className="h-20" />
-        </div>
-        <div>
-          <button>connexion</button>
-        </div>
-      </header>
-    </>
+    <header className="border  bg-green-900 text-white text-center">
+      <h1>BOUQUETS DE FLEURS ET PLANTES - LIVRAISON 24H EN FRANCE</h1>
+    </header>
   );
 };
 
