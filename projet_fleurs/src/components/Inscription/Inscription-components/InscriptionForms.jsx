@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import { redirect } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import ConnectionPage from "../../Connection/ConnectionPage";
 
 function RedirectReactRouterExample() {
@@ -43,6 +43,12 @@ const InscriptionForms = () => {
         // FONCTION A ECRIRE (TROUVER LIBRAIRIE DE HASH)
     }
 
+    // useState pour l'affichage de confirmation de création de compte
+    const [confirm, setConfirm] = useState(false);
+    const displayConfirm = () => {
+        setConfirm("true");
+    }
+
 
    
     const onSubmitHandler = (data) => {
@@ -52,8 +58,9 @@ const InscriptionForms = () => {
 
         // Requête à l'API à coder
 
-        // Redirection vers la page connexion... A REFAIRE
-        redirect('/connexion', { replace: true });
+        // afficher la div de confirmation
+        displayConfirm();
+
     }
 
    
@@ -104,6 +111,12 @@ const InscriptionForms = () => {
         
 
     </form>
+
+    <div id="registration-ok" className="" style={{display: confirm ? 'block' : 'none' }}>
+        <div className="text-xl text-green-700 m-5">Votre compte a bien été créé !</div>
+        <button id="go-to-connect" ></button>
+        <Link to="/connection" className="border bg-green-600 px-2 m-10 w-25 hover:shadow-xl">Connectez-vous</Link>
+    </div>
     
 </div>
     )}
