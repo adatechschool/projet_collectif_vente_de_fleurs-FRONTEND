@@ -68,7 +68,9 @@ const InscriptionForms = () => {
     // affichage
     return(
 <div id="forms-container" className="flex justify-center mt-5">
-    <form onSubmit={handleSubmit(onSubmitHandler)} className="flex flex-col">
+    <form onSubmit={handleSubmit(onSubmitHandler)} className="flex flex-col" 
+    style={{display: confirm ? 'none' : 'flex' }}
+    >
         <label className="p-2">
             Prénom: 
             <input type="text" name="firstName" {...register("firstName")} />
@@ -112,10 +114,11 @@ const InscriptionForms = () => {
 
     </form>
 
-    <div id="registration-ok" className="" style={{display: confirm ? 'block' : 'none' }}>
+    <div id="registration-ok" className="flex flex-col m-5"
+     style={{display: confirm ? 'flex' : 'none' }}
+     >
         <div className="text-xl text-green-700 m-5">Votre compte a bien été créé !</div>
-        <button id="go-to-connect" ></button>
-        <Link to="/connection" className="border bg-green-600 px-2 m-10 w-25 hover:shadow-xl">Connectez-vous</Link>
+        <Link to="/connection" className="border bg-green-600 m-10 w-25 hover:shadow-xl text-center">Connectez-vous</Link>
     </div>
     
 </div>
