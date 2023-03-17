@@ -17,7 +17,7 @@ const Articl = (props) =>{
 		   	 <img src={props.img} alt="image articl" /> 
 		     </div>
 			 {/* récouperer chaque id pour afficher l'article */}
-			 <button className='text-lg' onClick={() => marsel(props.id[0])}>{props.nom}</button>
+			 <button className='text-lg' onClick={() => marsel(props.id)}>{props.nom}</button>
 		    <p> {props.prix} </p>
 		</div>
 	    </>
