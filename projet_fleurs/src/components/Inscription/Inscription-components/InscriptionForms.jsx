@@ -23,7 +23,7 @@ const schema = yup.object().shape({
     firstName: yup.string().required(),
     lastName: yup.string().required(),
     email: yup.string().email().required(),
-    adress: yup.string().required(),
+    streetNumber: yup.string().required(),
     zipCode: yup.number().positive().integer().required(),
     city: yup.string().required(),
     // minimum 4 caractères, maximum 15
@@ -76,32 +76,38 @@ const InscriptionForms = () => {
 
     // affichage
     return (
-        <div id="forms-container" className="flex justify-center mt-5">
+        <div id="forms-container" className="flex justify-center mt-20"> 
           <form
             onSubmit={handleSubmit(onSubmitHandler)}
-            className="flex flex-col"
+            class="flex flex-col space-y-5 mt-5"
             style={{ display: confirm ? 'none' : 'flex' }}
           >
             <label className="p-2">
-              Prénom:
-              <input type="text" name="firstName" {...register('firstName')} />
+              <input
+              placeholder='Prénom' 
+              type="text" name="firstName" {...register('firstName')} 
+              class="w-full h-12 border border-gray-800 rounded px-3"/>
               <p>{errors.firstName?.message}</p>
             </label>
             <label className="p-2">
-              Nom:
-              <input type="text" name="lastName" {...register('lastName')} />
+              <input 
+              placeholder='Nom'
+              type="text" name="lastName" {...register('lastName')} 
+              class="w-full h-12 border border-gray-800 rounded px-3"/>
               <p>{errors.lastName?.message}</p>
             </label>
             <label className="p-2">
-              email:
-              <input type="text" name="email" {...register('email')} />
+              <input
+              placeholder='email' 
+              type="text" name="email" {...register('email')} 
+              class="w-full h-12 border border-gray-800 rounded px-3"/>
               <p>{errors.email?.message}</p>
             </label>
             <label className="p-2">
-              Adresse :
               <input
                 type="text"
                 name="adress"
+                class="w-full h-12 border border-gray-800 rounded px-3"
                 placeholder="numéro et rue"
                 {...register('adress')}
               />
@@ -109,13 +115,17 @@ const InscriptionForms = () => {
             </label>
             <label className="p-2">
               <input
+                class="w-full h-12 border border-gray-800 rounded px-3"
                 type="text"
                 name="zipCode"
                 placeholder="code postal"
                 {...register('zipCode')}
               />
               <p>{errors.zipCode?.message}</p>
+              </label>
+              <label className='p-2'>
               <input
+                class="w-full h-12 border border-gray-800 rounded px-3"
                 type="text"
                 name="city"
                 placeholder="ville"
@@ -124,13 +134,16 @@ const InscriptionForms = () => {
               <p>{errors.city?.message}</p>
             </label>
             <label className="p-2">
-              Définissez votre mot de passe :
-              <input type="password" name="password" {...register('password')} />
+              <input 
+              placeholder='Mot de passe'
+              type="password" name="password" {...register('password')}
+              class="w-full h-12 border border-gray-800 rounded px-3"/>
               <p>{errors.password?.message}</p>
             </label>
             <label className="p-2">
-              Confirmez votre mot de passe :
               <input
+                placeholder='Confirmez le mot de passe'
+                class='border border-gray-800 rounded px-3'
                 type="password"
                 name="passwordCheck"
                 {...register('passwordCheck')}
@@ -143,7 +156,7 @@ const InscriptionForms = () => {
 
             <button
               type="submit"
-              className="border bg-green-600 m-10 w-25 hover:shadow-xl"
+              className="border bg-green-800 m-10 w-25 rounded-full py-3 text-white hover:shadow-xl"
             >
               Je crée mon compte
             </button>
