@@ -1,14 +1,17 @@
 import React from "react";
-import SignupForms from "./Inscription-components/InscriptionForms";
+import InscriptionForms from "./Inscription-components/InscriptionForms";
 import InscriptionHeader from "./Inscription-components/InscriptionHeader";
-import { createStore } from 'state-pool';
+// A vérifier à quoi ça sert mais pour l'instant ce n'est pas utilisé
+//import { createStore } from 'state-pool';
 
 const InscriptionPage = () => {
     
   return (
-    <div id="inscription" className="flex flex-col">
-        <InscriptionHeader />
-        <SignupForms />
+    <div class=" flex flex-col space-y-10 justify-center items-center">
+        <div class="bg-white w-150 shadow-xl rounded p-5">
+            <InscriptionHeader />
+            <InscriptionForms />
+        </div>
     </div>
   );
 };
