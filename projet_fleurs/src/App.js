@@ -10,7 +10,7 @@ import User from "./components/User/UserPage";
 function App() {
   return (
     <div className="body-font font-Josefin">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/produit/:uid" element={<ProductPage />} />
