@@ -1,53 +1,162 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+import { redirect } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
+import ConnectionPage from '../../Connection/ConnectionPage';
+
+function RedirectReactRouterExample() {
+  return (
+    <Routes>
+      <Route path="connexion" element={<ConnectionPage />} />
+    </Routes>
+  );
+}
+
+// on définit un "schéma" pour utiliser la librairie yup afin de récupérer les données du formulaire
+const schema = yup.object().shape({
+  // .required : le formulaire ne se valide pas si le champ n'est pas rempli
+  firstName: yup.string().required(),
+  lastName: yup.string().required(),
+  email: yup.string().email().required(),
+  adress: yup.string().required(),
+  postalCode: yup.number().positive().integer().required(),
+  city: yup.string().required(),
+  // minimum 4 caractères, maximum 15
+  password: yup.string().min(4).max(15).required(),
+  // confirmation : yup vérifie si la confirmation correspond au mot de passe saisi par l'utilisateur
+  passwordCheck: yup
+    .string()
+    .oneOf([yup.ref('password'), null])
+    .required(),
+});
 
 const InscriptionForms = () => {
+  // UseForm utilisant le résolveur Yup pour le traitement du formulaire
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-    // states
-    const {register, handleSubmit} = useForm();
+  // fonction pour chiffrer le mot de passe avec sha256
+  const hash = (pwd) => {
+    // FONCTION A ECRIRE (TROUVER LIBRAIRIE DE HASH)
+  };
 
-    // comportements
-    const onSubmit = data => console.log(data);
-    // ATTENTION: avec 'required: true', le formulaire ne se valide pas si un champ est manquant
+  // useState pour l'affichage de confirmation de création de compte
+  const [confirm, setConfirm] = useState(false);
+  const displayConfirm = () => {
+    setConfirm('true');
+  };
 
-    // A FAIRE : voir comment récupérer les données, comparer le mot de passe, alerte si mot de passe erronné, envoi à l'API
+  const onSubmitHandler = (data) => {
+    console.log({ data });
 
-    // affichage
-    return(
-<div id="forms-container" className="flex justify-center mt-5">
-    <form action="submit" onSubmit={handleSubmit(onSubmit)} className="flex flex-col py-2">
-        <label>
-            Prénom:
-            <input type="text" name="firstName" {...register("firstName", {required: true})} />
+    // Insérer le hash du mot de passe
+
+    // Requête à l'API à coder
+
+    // afficher la div de confirmation
+    displayConfirm();
+  };
+
+  // affichage
+  return (
+    <div id="forms-container" className="flex justify-center mt-5">
+      <form
+        onSubmit={handleSubmit(onSubmitHandler)}
+        className="flex flex-col"
+        style={{ display: confirm ? 'none' : 'flex' }}
+      >
+        <label className="p-2">
+          Prénom:
+          <input type="text" name="firstName" {...register('firstName')} />
+          <p>{errors.firstName?.message}</p>
         </label>
-        <label>
-            Nom:
-            <input type="text" name="lastName" {...register("lastName", {required: true})}/>
+        <label className="p-2">
+          Nom:
+          <input type="text" name="lastName" {...register('lastName')} />
+          <p>{errors.lastName?.message}</p>
         </label>
-        <label>
-            email:
-            <input type="text" name="email" {...register("email", {required: true})} />
+        <label className="p-2">
+          email:
+          <input type="text" name="email" {...register('email')} />
+          <p>{errors.email?.message}</p>
         </label>
-        <label>
-            Adresse : 
-            <input type="text" name="adress" placeholder="adresse (rue et numéro)" {...register("adress", {required: true})}/>
+        <label className="p-2">
+          Adresse :
+          <input
+            type="text"
+            name="adress"
+            placeholder="numéro et rue"
+            {...register('adress')}
+          />
+          <p>{errors.adress?.message}</p>
         </label>
-        <label>
-            <input type="text" name="postalCode" placeholder="code postal"  {...register("postalCode", {required: true})}/>
-            <input type="text" name="city" placeholder="ville" {...register("city", {required: true})}/>
+        <label className="p-2">
+          <input
+            type="text"
+            name="postalCode"
+            placeholder="code postal"
+            {...register('postalCode')}
+          />
+          <p>{errors.postalCode?.message}</p>
+          <input
+            type="text"
+            name="city"
+            placeholder="ville"
+            {...register('city')}
+          />
+          <p>{errors.city?.message}</p>
         </label>
-        <label>
-            Mot de passe :
-            <input type="password" name="password" {...register("password", {required: true})}/>
+        <label className="p-2">
+          Définissez votre mot de passe :
+          <input type="password" name="password" {...register('password')} />
+          <p>{errors.password?.message}</p>
         </label>
-        <label>
-            Mot de passe (vérification) :
-            <input type="password" name="passwordCheck" {...register("passwordCheck", {required: true})}/>
+        <label className="p-2">
+          Confirmez votre mot de passe :
+          <input
+            type="password"
+            name="passwordCheck"
+            {...register('passwordCheck')}
+          />
+          <p>
+            {errors.passwordCheck &&
+              'Les mots de passe saisis ne correspondent pas'}
+          </p>
         </label>
 
-        <button>Créer mon compte</button>
-    </form>
-</div>
-    )}
+        <button
+          type="submit"
+          className="border bg-green-600 m-10 w-25 hover:shadow-xl"
+        >
+          Je crée mon compte
+        </button>
+      </form>
+
+      <div
+        id="registration-ok"
+        className="flex flex-col m-5"
+        style={{ display: confirm ? 'flex' : 'none' }}
+      >
+        <div className="text-xl text-green-700 m-5">
+          Votre compte a bien été créé !
+        </div>
+        <Link
+          to="/connexion"
+          className="border bg-green-600 m-10 w-25 hover:shadow-xl text-center"
+        >
+          Connectez-vous
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default InscriptionForms;
