@@ -44,7 +44,7 @@ const ConnectionPage = () => {
           </button>
           <p>
             {' '}
-            <a href="../Inscription" class=" font-medium">
+            <a href="../users/signup" class=" font-medium">
               S’inscrire
             </a>{' '}
           </p>
@@ -55,3 +55,5 @@ const ConnectionPage = () => {
 };
 
 export default ConnectionPage;
+
+
