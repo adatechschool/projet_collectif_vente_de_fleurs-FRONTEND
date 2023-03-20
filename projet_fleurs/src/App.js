@@ -13,11 +13,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/produit/:uid" element={<ProductPage />} />
+        <Route path="/produit/:uid" element={<ProductPage />} /> {/* TODO : changer "uid" par produit id */}
         <Route path="/panier/:id" element={<BasketPage />} />
         <Route path="/inscription" element={<InscriptionPage />} />
         <Route path="/connexion" element={<ConnectionPage />} />
-        <Route path="/user/:id" element={<User />} />
+        <Route path="/user/:id" element={<User />} /> 
       </Routes>
       <Footer />
     </div>
