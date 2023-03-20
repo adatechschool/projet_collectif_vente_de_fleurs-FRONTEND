@@ -13,7 +13,7 @@ const Navbar = () => {
       <h1 className="w-full text-2xl font-bold text-[#8be2c6]">
         Girls & Rouh's flowers
       </h1>
-      <ul className="flex">
+      <ul className="hidden md:flex">
         <li className="p-8">Home</li>
         <li className="p-8">Bouquets</li>
         <li className="p-8">Bonnes affaires</li>
@@ -22,14 +22,14 @@ const Navbar = () => {
       </ul>
 
       {/* When we click, if nav is not true, show Close else Menu */}
-      <div onClick={handleNav}>
-        {!nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+      <div onClick={handleNav} className="block md:hidden">
+        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
       {/* show menu when clicked else hidden */}
       <div
         className={
-          !nav
-            ? "fixed left-0 top-0 w-[20%] h-full border-r border-r-gray-900 bg-[#b4d6b4] ease-in-out duration 500"
+          nav
+            ? "fixed left-0 top-0 w-[50%] h-full border-r border-r-gray-900 bg-[#b4d6b4] ease-in-out duration 500"
             : "fixed left-[-100%]"
         }
       >
