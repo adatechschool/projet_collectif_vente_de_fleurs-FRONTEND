@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Articl from "./Articl/Articl";
+import Bandeau from "./Articl/Bandeau"
 import axios from "axios";
 
 const products = [
@@ -63,8 +64,9 @@ const HomePage = () =>{
 
 	return(
         <>
+		<Bandeau/>
 		{loading? <div>Data is loading</div>:
-         <div className="w-full mt-6 pl-[130px] pr-[130px] justify-items-center  grid grid-cols-3 gap-x-8">{
+        <div className="w-full mt-6 pl-[130px] pr-[130px] justify-items-center  grid grid-cols-3 gap-x-8">{
 			posts.map((post, index)=>(
 	            <Articl 
 			key = {index}
