@@ -27,7 +27,7 @@ const Nav = () => {
               </li>
             </Link>
             {/* la personne va vers page connextion si elle n'est pas comptes elle va vers page inscription */}
-            <Link to="/connexion">
+            <Link to="/users/signin">
               <li className="p-5">
                 <img
                   src={LoginIcon}
