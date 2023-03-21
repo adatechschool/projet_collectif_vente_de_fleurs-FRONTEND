@@ -8,19 +8,20 @@ import ConnectionPage from "./components/Connection/ConnectionPage";
 import Footer from "./components/Footer/Footer";
 import User from "./components/User/UserPage";
 import Nav from "./components/Header/HeaderComponent/Nav";
+import Navbar from "./components/Header/HeaderComponent/Categories";
 
 function App() {
   return (
     <div className="body-font font-Josefin">
-      {/* <Header /> */}
-      <Nav />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/produit/:uid" element={<ProductPage />} /> {/* TODO : changer "uid" par produit id */}
+        <Route path="/produit/:uid" element={<ProductPage />} />{" "}
+        {/* TODO : changer "uid" par produit id */}
         <Route path="/panier/:id" element={<BasketPage />} />
         <Route path="/inscription" element={<InscriptionPage />} />
         <Route path="/connexion" element={<ConnectionPage />} />
-        <Route path="/user/:id" element={<User />} /> 
+        <Route path="/user/:id" element={<User />} />
       </Routes>
       <Footer />
     </div>

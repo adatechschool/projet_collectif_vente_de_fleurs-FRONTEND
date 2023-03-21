@@ -6,8 +6,6 @@ import Banner from "../../Header/HeaderComponent/Banner";
 const Bandeau = () => {
   return (
     <>
-      <Banner />
-
       <div className="w-full relative">
         <img
           className="max-h-screen w-full object-cover object-bottom"

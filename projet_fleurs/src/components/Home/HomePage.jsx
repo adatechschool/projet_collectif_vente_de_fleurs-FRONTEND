@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Articl from "./Articl/Articl";
 import Bandeau from "./Articl/Bandeau";
 import axios from "axios";
+import Categories from "../Header/HeaderComponent/Categories";
 
 const products = [
   {
@@ -65,6 +66,7 @@ const HomePage = () => {
   return (
     <>
       <Bandeau />
+      <Categories />
       {loading ? (
         <div>Data is loading</div>
       ) : (
