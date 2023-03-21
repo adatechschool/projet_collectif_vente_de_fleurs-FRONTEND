@@ -9,16 +9,12 @@ const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className="flex justify-between items-center h-24 max-w-[1240 px] mx-auto px-4 text-black">
-      <h1 className="w-full text-2xl font-bold text-[#8be2c6]">
-        Girls & Rouh's flowers
-      </h1>
-      <ul className="hidden md:flex">
-        <li className="p-8">Home</li>
-        <li className="p-8">Bouquets</li>
-        <li className="p-8">Bonnes affaires</li>
-        <li className="p-8">Cadeaux</li>
-        <li className="p-8">Contact</li>
+    <div className="mx-40 relative flex items-center justify-center text-green-800 text-xl font-bold">
+      <ul className="flex space-x-40">
+        <li className="p-4">FLEURS</li>
+        <li className="p-4">PLANTES</li>
+        <li className="p-4">INTÉRIEUR</li>
+        <li className="p-4">EXTÉRIEUR</li>
       </ul>
 
       {/* When we click, if nav is not true, show Close else Menu */}
