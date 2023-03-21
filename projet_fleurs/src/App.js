@@ -16,9 +16,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/produit/:uid" element={<ProductPage />} />{" "}
+        <Route path="/produit/:produitId" element={<ProductPage />} />{" "}
         {/* TODO : changer "uid" par produit id */}
-        <Route path="/panier/:id" element={<BasketPage />} />
+        <Route path="/panier/" element={<BasketPage />} />
         <Route path="/users/signup" element={<InscriptionPage />} />
         <Route path="/users/signin" element={<ConnectionPage />} />
         <Route path="/user/:id" element={<User />} />
