@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios, { AxiosError } from "axios";
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -43,6 +43,7 @@ const ConnectionPage = () => {
     })
     .then((res) => {
       // réponse du serveur : objet contenant l'ID utilisateur et le token (cf back)
+      //console.log(res.data);
            
       if(res.status === 200) { 
         // stockage de l'ID et du token en sessionStorage (attention : valable pour un seul onglet,
@@ -50,6 +51,7 @@ const ConnectionPage = () => {
         // -------   Amélioration possible : utiliser un gestionnaire plus sécurisé -----
         sessionStorage.setItem("userId", res.data.userId)
         sessionStorage.setItem("token", res.data.token)
+        sessionStorage.setItem('admin', res.data.admin)
 
         // Récupération des deux variables id et token :
         // console.log("id stocké", sessionStorage.getItem("userId"))
@@ -76,6 +78,7 @@ const ConnectionPage = () => {
             placeholder="Email"
             name="email" {...register('email')} 
           />
+          <p>{errors.email?.message}</p>
           <div class="w-full flex items-center  border border-gray-800 rounded px-3">
             <input
               type="password"
@@ -85,6 +88,7 @@ const ConnectionPage = () => {
             />
             <span class=" hover:bg-green-700 rounded-full px-3 ">afficher</span>
           </div>
+          <p>{errors.password?.message}</p>
 
           <div class="">
             <a href="#!" class="font-medium   rounded-full p-2">
