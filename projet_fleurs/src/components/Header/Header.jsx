@@ -21,7 +21,7 @@ const Header = () => {
               <li>Panier</li>
             </Link>
             {/* la personne va vers page connextion si elle n'est pas comptes elle va vers page inscription */}
-            <Link to="/connexion">
+            <Link to="/users/signin">
               <li>Connexion/Inscription</li>
             </Link>
           </ul>
