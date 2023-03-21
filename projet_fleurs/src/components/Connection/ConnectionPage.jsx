@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Header from "../Header/Header";
 
 const ConnectionPage = () => {
   //useNavigate permet de naviguer entre différente page ou route dans une app React
@@ -10,6 +11,8 @@ const ConnectionPage = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div class="  flex flex-col space-y-10 justify-center items-center">
       <div class="bg-white w-96 shadow-xl rounded p-5">
         <h1 class="text-3xl font-medium">S’identifier</h1>
@@ -51,6 +54,7 @@ const ConnectionPage = () => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

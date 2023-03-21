@@ -5,8 +5,10 @@ const Footer = () => {
   return (
     <footer className="bg-green-800 text-white">
       <ItemsContainer />
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-green-900 py-3">
+      <div className="md:flex md:justify-between md:items-center sm:px-12 px-2 bg-green-900 py-2">
+        
         <span>© 2023 Wonderouman. Tous droit résevés.</span>
+
         <span>Politique de confidentialité</span>
 
         <div class="flex justify-center">
