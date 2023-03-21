@@ -63,16 +63,6 @@ const ConnectionPage = () => {
     });
   };
 
-
-  //useNavigate permet de naviguer entre différente page ou route dans une app React
-  // let navigate = useNavigate();
-  // const connectUser = () => {
-  //   axios.post("http://localhost:8000/users/signisn", {
-  //     email: data.email,
-  //     password : data.password
-  //   })
-  // };
-
   return (
     <div class="  flex flex-col space-y-10 justify-center items-center">
       <div class="bg-white w-96 shadow-xl rounded p-5">
