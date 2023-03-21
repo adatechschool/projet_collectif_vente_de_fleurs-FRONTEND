@@ -49,7 +49,7 @@ const InscriptionForms = () => {
   //useState pour l'affichage de confirmation de création de compte
   const [confirm, setConfirm] = useState(false);
   const displayConfirm = () => {
-    setConfirm('true');
+    setConfirm(true);
   };
 
   const onSubmitHandler = (data) => {
