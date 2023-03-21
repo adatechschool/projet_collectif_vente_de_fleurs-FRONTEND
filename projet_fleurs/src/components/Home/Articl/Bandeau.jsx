@@ -22,7 +22,7 @@ const Bandeau = () => {
           <button
             id="button"
             type="submit"
-            class="bg-pink-900 shadow hover:bg-pink-700 text-white font-bold rounded-full p-3 w-40"
+            className="bg-pink-900 shadow hover:bg-pink-700 text-white font-bold rounded-full p-3 w-40"
           >
             Notre collection
           </button>
