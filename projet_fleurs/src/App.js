@@ -19,8 +19,8 @@ function App() {
         <Route path="/produit/:uid" element={<ProductPage />} />{" "}
         {/* TODO : changer "uid" par produit id */}
         <Route path="/panier/:id" element={<BasketPage />} />
-        <Route path="/inscription" element={<InscriptionPage />} />
-        <Route path="/connexion" element={<ConnectionPage />} />
+        <Route path="/users/signup" element={<InscriptionPage />} />
+        <Route path="/users/signin" element={<ConnectionPage />} />
         <Route path="/user/:id" element={<User />} />
       </Routes>
       <Footer />
