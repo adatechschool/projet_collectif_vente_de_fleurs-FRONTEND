@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Josefin: ["Josefin Sans", "sans-serif"],
+        Yeseva: ["Yeseva One", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
