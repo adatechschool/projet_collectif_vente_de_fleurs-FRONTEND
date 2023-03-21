@@ -56,7 +56,8 @@ const InscriptionForms = () => {
     console.log({ data });
     reset();
     // Requête post à l'API avec axios
-    axios.post("https://wonderouman.vercel.app/users/signup",{
+    //axios.post("https://wonderouman.vercel.app/users/signup",{
+     axios.post("http://localhost:8000/users/signup", {
       email : data.email,
       firstname : data.firstname,
       lastname : data.lastname,

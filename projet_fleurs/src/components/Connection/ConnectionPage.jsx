@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 
 const ConnectionPage = () => {
   //useNavigate permet de naviguer entre différente page ou route dans une app React
   let navigate = useNavigate();
-  const angela = (id) => {
-    navigate('../user/' + id);
-    console.log(id);
+  const connectUser = () => {
+    axios.post("http://localhost:8000/users/signisn", {
+      email: data.email,
+      password : data.password
+    })
   };
 
   return (
