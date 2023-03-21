@@ -7,10 +7,13 @@ import InscriptionPage from "./components/Inscription/InscriptionPage";
 import ConnectionPage from "./components/Connection/ConnectionPage";
 import Footer from "./components/Footer/Footer";
 import User from "./components/User/UserPage";
+import Nav from "./components/Header/HeaderComponent/Nav";
+
 function App() {
   return (
     <div className="body-font font-Josefin">
       {/* <Header /> */}
+      <Nav />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/produit/:uid" element={<ProductPage />} />
