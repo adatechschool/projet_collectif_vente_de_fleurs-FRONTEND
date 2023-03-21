@@ -1,14 +1,17 @@
 import React from "react";
+
 import Logo from "../../img/logo_720.jpg";
 import PanierIcon from "../../img/panier.png";
 import LoginIcon from "../../img/login.png";
 import { Link } from "react-router-dom";
 import Banner from "./HeaderComponent/Banner";
 import Navbar from "./HeaderComponent/Navbar";
+import Nav from "./HeaderComponent/Nav";
 
 const Header = () => {
   return (
     <>
+
       <div className="mx-40">
         <Banner />
       </div>
@@ -36,6 +39,7 @@ const Header = () => {
         </div>
       </header>
       <Navbar />
+      <Nav />
     </>
   );
 };
