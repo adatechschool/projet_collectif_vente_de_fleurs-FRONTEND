@@ -5,8 +5,9 @@ import PanierIcon from "../../../img/panier.png";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
-const Nav = () => {
-  
+const Nav = ({loggin, setLoggin}) => {
+  console.log("Nav", loggin);
+
   return (
     <>
       <header className="flex justify-between items-center">
@@ -30,9 +31,7 @@ const Nav = () => {
               </li>
             </Link>
             {/* si utilisateur connecté : bouton déconnection, sinon : bouton connexion */}
-            { (sessionStorage.getItem("token")) ? <LogoutButton /> : <LoginButton />
-            
-            }
+            { loggin === true ? <LogoutButton loggin={loggin} setLoggin={setLoggin} />  : <LoginButton />}
           </ul>
         </div>
       </header>
