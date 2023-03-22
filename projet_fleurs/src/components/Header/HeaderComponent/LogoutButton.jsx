@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-const LogoutButton = () => {
+const LogoutButton = ({loggin, setLoggin}) => {
+  console.log("LogoutButton", loggin);
+  
   const clearSession = () => {
+    setLoggin(false)
     sessionStorage.clear();
   }
 
