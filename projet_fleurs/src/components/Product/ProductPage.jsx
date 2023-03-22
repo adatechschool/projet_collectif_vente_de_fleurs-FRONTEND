@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ArticlePhoto from "./Article-components/ArticlePhoto";
 import ArticleText from "./Article-components/ArticleText";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ProductPage = () => {
- 
   // affiche valeur de uid
   let { produitId } = useParams();
 
@@ -40,6 +39,7 @@ const ProductPage = () => {
 
             {/* où on structure l'ffichages nome, description, prix */}
             <ArticleText
+              produit={post}
               produitId={post._id}
               name={post.name}
               description={post.description}
