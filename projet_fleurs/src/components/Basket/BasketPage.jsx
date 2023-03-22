@@ -36,14 +36,35 @@ export default function BasketPage(props) {
   // }, []);
   let result = [];
   basket.map((product) => (result.push(product._id), console.log(result)));
+  console.log("basket is: ==>",basket)
+  const takeOrder = (basket) =>{
+    axios.post("https://wonderouman.vercel.app/orders",{
+      userId: sessionStorage.getItem("userId"), 
+      product : [{
+        productId: basket._id,
+        name: basket.name,
+        price: basket.price,
+        quantity:2,
+      }
+      ],
+      priceTotal:"?",
+      date:"?",
+      // adresse:
+      //   numberStreet:"",
+      //   zipCode:"",
+      //   city:""
+    })
+  }
+  takeOrder[basket[0]]
+
 
   return (
   <>
       {/* <Header/> */}
 
     <div className="w-full justify-center mt-[30px]">
-    
       <h1 className="text-center text-4xl font-Yeseva m-5">Mon panier</h1>
+      <button onClick={takeOrder}>passer ma commande</button>
 
       {/* parcourire chaque produit de la composant Products */}
 
