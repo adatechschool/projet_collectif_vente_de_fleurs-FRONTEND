@@ -31,6 +31,11 @@ const ConnectionPage = ({loggin, setLoggin}) => {
       setConfirm(true);
     };
 
+    const [passwordVisible,setPasswordVisible]=useState(false);
+    let togglePasswordVisibility=()=>{
+      setPasswordVisible(!passwordVisible);
+    }
+
     // variable pour la redirection
     const navigate = useNavigate();
   
@@ -84,12 +89,12 @@ const ConnectionPage = ({loggin, setLoggin}) => {
           <p>{errors.email?.message}</p>
           <div class="w-full flex items-center  border border-gray-800 rounded px-3">
             <input
-              type="password"
+              type={passwordVisible ? 'text' : 'password'}
               class="w-4/5 h-12"
               placeholder="Mot de passe"
               name="password" {...register('password')}
             />
-            <span class=" hover:bg-green-700 rounded-full px-3 ">afficher</span>
+            <span class=" hover:bg-green-700 rounded-full px-3 " onClick={togglePasswordVisibility}>afficher</span>
           </div>
           <p>{errors.password?.message}</p>
 
