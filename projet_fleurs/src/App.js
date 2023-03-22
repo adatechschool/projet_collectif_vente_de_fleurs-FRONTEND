@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext } from 'react';
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import HomePage from "./components/Home/HomePage";
@@ -11,9 +11,6 @@ import AdminProducts from "./components/Admin/AdminComponents/AdminProducts";
 import AdminForm from "./components/Admin/AdminComponents/AdminForm.jsx";
 import Footer from "./components/Footer/Footer";
 import User from "./components/User/UserPage";
-import Nav from "./components/Header/HeaderComponent/Nav";
-import Navbar from "./components/Header/HeaderComponent/Categories";
-import { useState, createContext } from "react";
 
 export const BasketContext = createContext();
 
