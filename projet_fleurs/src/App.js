@@ -12,7 +12,14 @@ import User from "./components/User/UserPage";
 //import Navbar from "./components/Header/HeaderComponent/Categories";
 
 function App() {
-  const [loggin, setLoggin] = useState();
+  let log;
+  if (sessionStorage.getItem('token')) {
+    log = true; 
+  } else {
+    log = false;
+  }
+  const [loggin, setLoggin] = useState(log);
+
   console.log(loggin);
 
   return (
