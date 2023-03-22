@@ -12,7 +12,9 @@ const schema = yup.object().shape({
   password: yup.string().required(),
 });
 
-const ConnectionPage = () => {
+const ConnectionPage = ({loggin, setLoggin}) => {
+  //const [loggin, setLoggin] = useState(false);
+
   // utilisation du résolveur yup
     const {
     register,
@@ -52,7 +54,8 @@ const ConnectionPage = () => {
         sessionStorage.setItem("userId", res.data.userId)
         sessionStorage.setItem("token", res.data.token)
         sessionStorage.setItem('admin', res.data.admin)
-
+        setLoggin(true);
+        
         // Récupération des deux variables id et token :
         // console.log("id stocké", sessionStorage.getItem("userId"))
         // console.log("token stocké", sessionStorage.getItem("token"))
@@ -61,7 +64,7 @@ const ConnectionPage = () => {
     })
     .catch((error) => {
       console.log(error)
-      displayConfirm()
+      displayConfirm();
     });
   };
 
