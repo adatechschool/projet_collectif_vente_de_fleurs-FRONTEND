@@ -1,20 +1,26 @@
 import React, {useState} from "react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+// import { BooleanInput } from 'react-admin';
 import * as yup from 'yup';
 import axios from "axios";
 import AdminPage from "../AdminPage";
 
+
 // On définit un "schéma" pour utiliser la librairie yup afin de récupérer les données du formulaire
 const schema = yup.object().shape({
     // .required : le formulaire ne se valide pas si le champ n'est pas rempli
-    name: yup.string().email().required(),
+    name: yup.string().required(),
     description: yup.string().required(),
-    //images: yup.string().required(),
     price: yup.number().positive().integer().required(),
     size: yup.string().required(),
-    //category: yup.string().required(),
     stock: yup.number().positive().integer().required(),
+    fleur: yup.boolean().required(),
+    plante: yup.boolean().required(),
+    intérieur: yup.boolean().required(),
+    extérieur: yup.boolean().required(),
+    // images: yup.array().of(yup.string().required()),
+    images: yup.string().required(),
   });
 
 const AdminForm = () => {
@@ -39,18 +45,22 @@ const AdminForm = () => {
         reset(); //efface le formulaire
 
         // Requête post à l'API avec axios
-        axios.post("https://wonderouman.vercel.app/products/:id",{
+        axios.post("https://wonderouman.vercel.app/products",{
             name : data.name,
             description : data.description,
-            //images : data.images,
             price : data.price,
             size : data.size,
-            //category : data.category,
             stock : data.stock,
+            images : data.images,
+            //category : data.category,
+            fleur : data.fleur,
+            plante : data.plante,
+            intérieur : data.intérieur,
+            extérieur : data.extérieur,
         })
         .then((res) => {
             console.log(res.data)
-            if(res.data === 'ok') { 
+            if(res.data === 'Product created !') { 
                 // afficher la div de confirmation
                 displayConfirm();
             }
@@ -60,12 +70,19 @@ const AdminForm = () => {
         });
     };
 
+    //Catégories
+    const [checked, setChecked] = useState(false);
+    const handleChange = () => {
+        setChecked(!checked);
+    };
+
     return (
     <>
     <AdminPage/>
 
-    <div className="flex justify-center space-y-10 items-center mt-10">
+    <div className="flex justify-center items-center mt-10">
         
+        {/* Formulaire */}
         <div className="bg-white shadow-xl rounded p-5">
 
         <form
@@ -74,10 +91,10 @@ const AdminForm = () => {
             style={{ display: confirm ? 'none' : 'flex' }}
         >
 
-            <label class="p-1">
+            <label className="p-1">
                 <input
                     type="text"
-                    className="h-12 border border-gray-800 rounded px-3"
+                    className="h-10 border border-gray-800 rounded px-3"
                     placeholder="Nom du produit"
                     name="name"
                     {...register('name')}
@@ -85,10 +102,10 @@ const AdminForm = () => {
                 <p>{errors.name?.message}</p>
             </label>
 
-            <label class="p-1">
+            <label className="p-1">
                 <textarea
                     type="text"
-                    className="h-20 border border-gray-800 rounded px-3"
+                    className="h-24 border border-gray-800 rounded px-3"
                     placeholder="Description du produit"
                     name="description"
                     {...register('description')}
@@ -96,10 +113,10 @@ const AdminForm = () => {
                 <p>{errors.description?.message}</p>
             </label>
 
-            <label class="p-1">
+            <label className="p-1">
                 <input
                     type="text"
-                    className="h-12 border border-gray-800 rounded px-3"
+                    className="h-10 border border-gray-800 rounded px-3"
                     placeholder="Prix du produit"
                     name="price"
                     {...register('price')}
@@ -107,10 +124,10 @@ const AdminForm = () => {
                 <p>{errors.price?.message}</p>
             </label>
 
-            <label class="p-1">
+            <label className="p-1">
                 <input
                     type="text"
-                    className="h-12 border border-gray-800 rounded px-3"
+                    className="h-10 border border-gray-800 rounded px-3"
                     placeholder="Taille du produit"
                     name="size"
                     {...register('size')}
@@ -120,7 +137,7 @@ const AdminForm = () => {
 
             {/* <label class="p-1">
                 <select
-                    className="w-full h-12 border border-gray-800 rounded px-3"
+                    className="w-full h-10 border border-gray-800 rounded px-3"
                     name="category"
                     {...register('category')}
                 >
@@ -132,10 +149,10 @@ const AdminForm = () => {
                 <p>{errors.category?.message}</p>
             </label> */}
 
-            <label class="p-1">
+            <label className="p-1">
                 <input
                     type="text"
-                    className="h-12 border border-gray-800 rounded px-3"
+                    className="h-10 border border-gray-800 rounded px-3"
                     placeholder="Stock du produit"
                     name="stock"
                     {...register('stock')}
@@ -143,16 +160,77 @@ const AdminForm = () => {
                 <p>{errors.stock?.message}</p>
             </label>
 
-            {/* <label class="p-1">
+            {/* IMAGES */}
+
+            <label className="p-1">
                 <input
-                    type="file"
-                    className=""
-                    placeholder="Images du produit"
+                    type="text"
+                    className="h-10 border border-gray-800 rounded px-3"
+                    placeholder="Image principale du produit"
+                    name="images"
+                    {...register('images')}
+                />
+                <p>{errors.images?.message}</p>
+            </label>
+
+            {/* <label className="p-1">
+                <input
+                    type="text"
+                    className="h-10 border border-gray-800 rounded px-3"
+                    placeholder="Image secondaire du produit"
                     name="images"
                     {...register('images')}
                 />
                 <p>{errors.images?.message}</p>
             </label> */}
+
+            {/* CATEGORIES */}
+
+            <div className="border border-gray-800 rounded px-3 pt-1 m-1 flex flex-col">
+                <label >
+                    <input
+                        type="checkbox"
+                        name="fleur"
+                        defaultChecked={checked}
+                        onChange={handleChange}
+                        {...register('fleur')}
+                    />
+                    Fleur 
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="plante"
+                        defaultChecked={checked}
+                        onChange={handleChange}
+                        {...register('plante')}
+                    />
+                    Plante verte 
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="intérieur"
+                        defaultChecked={checked}
+                        onChange={handleChange}
+                        {...register('intérieur')}
+                    />
+                    Intérieur 
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        name="extérieur"
+                        defaultChecked={checked}
+                        onChange={handleChange}
+                        {...register('extérieur')}
+                    />
+                    Extérieur 
+                </label>
+            </div>
 
             <button type="submit" class="text-center bg-green-900 hover:bg-green-700 rounded-full text-white py-2 font-bold">
                 Ajouter le produit
@@ -160,8 +238,9 @@ const AdminForm = () => {
 
         </form>
 
+        {/* Message de confirmation de création du produit */}
         <div class="flex flex-col m-5" style={{ display: confirm ? 'flex' : 'none' }}>
-            <div class="text-xl text-green-700 m-5">Votre produit a bien été créé !</div>
+            <div class="text-xl text-green-700 m-5">Votre produit a bien été ajouté à la base de données !</div>
         </div>
 
         </div>

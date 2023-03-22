@@ -19,10 +19,8 @@ const AdminProducts = () => {
 
     //Supprimer un produit de la BDD
     const deleteProduct = id => {
-        //productID.preventDefault(); //empêcher le rechargement de la page
         axios
         .delete(`https://wonderouman.vercel.app/products/${id}`)
-        //.delete(`https://wonderouman.vercel.app/products/:id`)
         .then(response => {
             alert("Product deleted!");
             setProducts(null);
@@ -55,7 +53,6 @@ const AdminProducts = () => {
                                 <td className="border border-slate-300 w-72 p-2 font-bold">{post.name}</td>
                                 <td className="border border-slate-300 w-20 p-2 text-center">{post.price + "€"}</td>
                                 <td className="border border-slate-300 w-96 p-2">{post.description}</td>
-                                {/* <td>{post.category}</td> */}
                                 <td className="border border-slate-300 w-20 p-2 text-center">{post.stock}</td>
                                 <td>
                                     <button

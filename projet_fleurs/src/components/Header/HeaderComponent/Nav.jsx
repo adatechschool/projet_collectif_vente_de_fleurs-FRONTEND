@@ -2,8 +2,8 @@ import React from "react";
 // import Logo from "../../../img/logo_720.jpg";
 import Logo from "../../../img/logo_fleur.png";
 import { Link } from "react-router-dom";
-import PanierIcon from "../../../img/panier_transparent.png";
-import LoginIcon from "../../../img/login_transparent.png";
+import PanierIcon from "../../../img/basket.png";
+import LoginIcon from "../../../img/new_user.png";
 import AdminIcon from "../../../img/admin.png";
 
 const Nav = () => {

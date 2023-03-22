@@ -11,6 +11,7 @@
     "js-sha256": "^0.9.0",
     "next.js": "^1.0.3",
     "react": "^18.2.0",
+    "react-admin": "^4.8.4",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.5",
     "react-icons": "^4.8.0",
