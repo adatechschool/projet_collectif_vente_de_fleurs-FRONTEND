@@ -2,10 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Articl = (props) => {
+  
   const navigate = useNavigate();
   // ajouter id de produit dans url: example: localhost:3000/produit/1
-  const marsel = (userId) => {
-    navigate("/produit/" + userId);
+  const marsel = (produitId) => {
+    navigate("/produit/" + produitId);
   };
 
   return (

@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { BasketContext } from "../../../App";
 
 const ArticleText = (props) => {
+  const { setBasket, basket } = useContext(BasketContext);
+  const navigate = useNavigate();
+  // ajouter id de produit dans url: example: localhost:3000/ panier/ id de produit
+  const marsel = (produitId) => {
+    navigate("/panier/" + produitId);
+  };
+
   const [count, setCount] = useState(1);
   // ajoute article jusqu'à max articl exisstant en stock
   function handleClick() {
@@ -17,7 +26,6 @@ const ArticleText = (props) => {
       setCount(count - 1);
     }
   }
-  console.log(props.name);
   return (
     <div className="w-[40%]">
       <div id="productName" className="text-4xl p-5 font-bold">
@@ -46,6 +54,9 @@ const ArticleText = (props) => {
       </div>
       <div className="w-[30%] my-5">
         <button
+          onClick={() =>
+            setBasket((previousState) => [...previousState, props.produit])
+          }
           type="submit"
           name="add-to-cart"
           className="ml-[20px] w-[150px] h-[40px] rounded-[4px] bg-green-700 px-2 py-1 text-white border hover:shadow-xl"
