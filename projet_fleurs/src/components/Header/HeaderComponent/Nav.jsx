@@ -1,37 +1,53 @@
-import React, { useState } from "react";
-import Logo from "../../../img/logo_720.jpg";
+import React from "react";
+// import Logo from "../../../img/logo_720.jpg";
+import Logo from "../../../img/logo_fleur.png";
 import { Link } from "react-router-dom";
-import PanierIcon from "../../../img/panier.png";
-import LoginIcon from "../../../img/login.png";
+import PanierIcon from "../../../img/basket.png";
+import LoginIcon from "../../../img/new_user.png";
+import AdminIcon from "../../../img/admin.png";
 
 const Nav = () => {
   return (
     <>
       <header className="flex justify-between items-center">
-        <div>
+        <div className="flex justify-between items-center">
           {" "}
           <Link to="/">
-            <img src={Logo} className="h-20" />
+            <img src={Logo} alt="Logo" className="h-20 p-2" />
+          </Link>
+          <Link to="/">
+            <h1 className="text-xl text-green-900 body-font font-Yeseva">Wonderflower</h1>
           </Link>
         </div>
         <div>
-          <ul className="flex p-3">
-            {/* si une utilisateur est connecté avec son id elle a accé à son panier. ex: url localhost:3000/panier/1 */}
+          <ul className="flex">
+            {/* si l'utilisateur est connecté avec son id, il a accès à son panier. ex: url localhost:3000/panier/1 */}
             <Link to="/panier">
-              <li className="p-5">
+              <li className="p-4">
                 {" "}
                 <img
                   src={PanierIcon}
-                  className="h-10 w-10 rounded hover:shadow-xl "
+                  alt="Logo panier"
+                  className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
                 />
               </li>
             </Link>
-            {/* la personne va vers page connextion si elle n'est pas comptes elle va vers page inscription */}
+            {/* Inscription si pas de compte, sinon connexion */}
             <Link to="/users/signin">
-              <li className="p-5">
+              <li className="p-4">
                 <img
                   src={LoginIcon}
-                  className="h-10 w-10 rounded hover:shadow-xl"
+                  alt="Logo connexion"
+                  className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
+                />
+              </li>
+            </Link>
+            <Link to="/admin">
+              <li className="p-4">
+                <img
+                  src={AdminIcon}
+                  alt="Logo admin"
+                  className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
                 />
               </li>
             </Link>

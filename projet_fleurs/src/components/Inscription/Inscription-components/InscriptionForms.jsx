@@ -79,7 +79,7 @@ const InscriptionForms = () => {
 
   // affichage
   return (
-    <div id="forms-container" class="flex justify-center mt-5"> 
+    <div id="forms-container" class="flex justify-center"> 
       <form
         class="flex flex-col space-y-1 mt-1"
         onSubmit={handleSubmit(onSubmitHandler)}
@@ -154,7 +154,7 @@ const InscriptionForms = () => {
         </label>
 
         <button
-          class="border bg-green-800 m-100 w-25 rounded-full py-3 text-white hover:shadow-xl"
+          class="border bg-green-800 w-25 rounded-full py-3 text-white hover:shadow-xl"
           type="submit"
         >
           Je crée mon compte

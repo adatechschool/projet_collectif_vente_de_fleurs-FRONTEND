@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Products from "./Products/Products";
+import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BasketContext } from "../../App";
@@ -37,7 +38,11 @@ export default function BasketPage(props) {
   basket.map((product) => (result.push(product._id), console.log(result)));
 
   return (
+  <>
+      <Header/>
+
     <div className="w-full justify-center mt-[30px]">
+    
       <h1 className="text-center text-4xl font-Yeseva m-5">Mon panier</h1>
 
       {/* parcourire chaque produit de la composant Products */}
@@ -55,5 +60,6 @@ export default function BasketPage(props) {
         </div>
       ))}
     </div>
+    </>
   );
 }

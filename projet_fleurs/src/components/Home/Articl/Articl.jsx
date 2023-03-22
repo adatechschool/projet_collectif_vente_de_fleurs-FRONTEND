@@ -19,9 +19,9 @@ const Articl = (props) => {
         <img
           className="max-h-96 w-full object-cover"
           src={props.img}
-          alt="image article"
+          alt="article"
         />
-        <div className="absolute w-full bottom-0 py-3 inset-x-0 text-center leading-4 bg-white m-auto mb-8 w-9/12 bg-opacity-90">
+        <div className="absolute bottom-0 py-3 inset-x-0 text-center leading-4 bg-white m-auto mb-8 w-9/12 bg-opacity-90">
           {/* récouperer chaque id pour afficher l'article */}
           <p className="text-2xl">{props.nom}</p>
           <p> {props.prix} </p>
