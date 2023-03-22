@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ArticlePhoto from "./Article-components/ArticlePhoto";
 import ArticleText from "./Article-components/ArticleText";
+import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const ProductPage = () => {
   // affiche valeur de uid
-  let { uid } = useParams();
+  let { produitId } = useParams();
 
   // affichage des données
   const [posts, setPosts] = useState([]);
   // la chargement des données avant affichage
   const [loading, setLoading] = useState(true);
 
-  // récouperer des données après api
+  // récuperer des données après api
   const fetchPosts = async () => {
     const responsePosts = await axios.get(
       `https://wonderouman.vercel.app/products`
@@ -31,14 +32,17 @@ const ProductPage = () => {
 
   return (
     <>
+    <Header />
       {posts.map((post, index) =>
-        post._id === uid ? (
+        post._id === produitId ? (
           <div id="container" className="w-full flex justify-center">
             {/* où on structure l'affichage images */}
             <ArticlePhoto key={index} images={post.images} />
 
             {/* où on structure l'ffichages nome, description, prix */}
             <ArticleText
+              produit={post}
+              produitId={post._id}
               name={post.name}
               description={post.description}
               price={post.price}

@@ -6,10 +6,17 @@ import ProductPage from "./components/Product/ProductPage";
 import BasketPage from "./components/Basket/BasketPage";
 import InscriptionPage from "./components/Inscription/InscriptionPage";
 import ConnectionPage from "./components/Connection/ConnectionPage";
+import AdminPage from "./components/Admin/AdminPage.jsx";
+import AdminProducts from "./components/Admin/AdminComponents/AdminProducts";
+import AdminForm from "./components/Admin/AdminComponents/AdminForm.jsx";
 import Footer from "./components/Footer/Footer";
 import User from "./components/User/UserPage";
-//import Nav from "./components/Header/HeaderComponent/Nav";
-//import Navbar from "./components/Header/HeaderComponent/Categories";
+import Nav from "./components/Header/HeaderComponent/Nav";
+import Navbar from "./components/Header/HeaderComponent/Categories";
+import { useState, createContext } from "react";
+
+export const BasketContext = createContext();
+
 
 function App() {
   let log;
@@ -19,23 +26,28 @@ function App() {
     log = false;
   }
   const [loggin, setLoggin] = useState(log);
-
-  console.log(loggin);
-
+  const [basket, setBasket] = useState([]);
+  console.log(basket);
   return (
-    <div className="body-font font-Josefin">
+
+    <BasketContext.Provider value={{ basket, setBasket }}>
+      <div className="body-font font-Josefin">
       <Header loggin={loggin} setLoggin={setLoggin} />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/produit/:uid" element={<ProductPage />} />{" "}
-        {/* TODO : changer "uid" par produit id */}
-        <Route path="/panier/:id" element={<BasketPage />} />
-        <Route path="/users/signup" element={<InscriptionPage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/produit/:produitId" element={<ProductPage />} />{" "}
+          <Route path="/panier/" element={<BasketPage />} />
+          <Route path="/users/signup" element={<InscriptionPage />} />
         <Route path="/users/signin" element={<ConnectionPage loggin={loggin} setLoggin={setLoggin} />} />
-        <Route path="/user/:id" element={<User />} />
-      </Routes>
-      <Footer />
-    </div>
+          <Route path="/user/:id" element={<User />} />
+           <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/form" element={<AdminForm />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BasketContext.Provider>
+
   );
 }
 

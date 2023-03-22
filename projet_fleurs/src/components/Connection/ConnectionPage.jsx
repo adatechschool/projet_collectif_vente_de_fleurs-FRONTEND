@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from "../Header/Header";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useForm } from 'react-hook-form';
@@ -13,7 +14,6 @@ const schema = yup.object().shape({
 });
 
 const ConnectionPage = ({loggin, setLoggin}) => {
-  //const [loggin, setLoggin] = useState(false);
 
   // utilisation du résolveur yup
     const {
@@ -74,6 +74,8 @@ const ConnectionPage = ({loggin, setLoggin}) => {
   };
 
   return (
+    <>
+    <Header/>
     <div class="  flex flex-col space-y-10 justify-center items-center">
       <div class="bg-white w-96 shadow-xl rounded p-5">
         <h1 class="text-3xl font-medium">S’identifier</h1>
@@ -124,6 +126,7 @@ const ConnectionPage = ({loggin, setLoggin}) => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 

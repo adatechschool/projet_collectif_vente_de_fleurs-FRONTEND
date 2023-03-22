@@ -8,7 +8,6 @@ const Header = ({ loggin, setLoggin }) => {
   return (
     <>
       <Banner />
-
       <Nav loggin={loggin} setLoggin={setLoggin} />
     </>
   );
