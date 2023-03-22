@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../Header/Header";
+//import Header from "../Header/Header";
 import { Link } from "react-router-dom";
 
 const AdminPage = () => {
 
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
 
     <h1 className="text-3xl font-bold text-center">Mon espace administrateur·ice</h1>
 

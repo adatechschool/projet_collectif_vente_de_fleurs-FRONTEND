@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Products from "./Products/Products";
-import Header from "../Header/Header";
+//import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BasketContext } from "../../App";
@@ -39,7 +39,7 @@ export default function BasketPage(props) {
 
   return (
   <>
-      <Header/>
+      {/* <Header/> */}
 
     <div className="w-full justify-center mt-[30px]">
     

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import ArticlePhoto from "./Article-components/ArticlePhoto";
 import ArticleText from "./Article-components/ArticleText";
-import Header from "../Header/Header";
+//import Header from "../Header/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -32,7 +32,7 @@ const ProductPage = () => {
 
   return (
     <>
-    <Header />
+    {/* <Header /> */}
       {posts.map((post, index) =>
         post._id === produitId ? (
           <div id="container" className="w-full flex justify-center">

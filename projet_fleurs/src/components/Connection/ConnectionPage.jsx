@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from "../Header/Header";
+//import Header from "../Header/Header";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useForm } from 'react-hook-form';
@@ -75,7 +75,7 @@ const ConnectionPage = ({loggin, setLoggin}) => {
 
   return (
     <>
-    <Header/>
+    {/* <Header/> */}
     <div class="  flex flex-col space-y-10 justify-center items-center">
       <div class="bg-white w-96 shadow-xl rounded p-5">
         <h1 class="text-3xl font-medium">S’identifier</h1>
