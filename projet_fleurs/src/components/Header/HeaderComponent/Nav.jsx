@@ -37,14 +37,15 @@ const Nav = ({loggin, setLoggin}) => {
                 />
               </li>
             </Link>
+            <li>
             {/* si utilisateur connecté : bouton déconnection, sinon : bouton connexion */}
             { loggin === true ? <LogoutButton loggin={loggin} setLoggin={setLoggin} />  : <LoginButton />}
 
-                  alt="Logo panier"
+                  {/* alt="Logo panier"
                   className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
-                />
+                /> */}
               </li>
-            </Link>
+            {/* </Link> */}
             {/* Inscription si pas de compte, sinon connexion */}
             <Link to="/users/signin">
               <li className="p-4">
