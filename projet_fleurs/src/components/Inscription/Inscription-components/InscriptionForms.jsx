@@ -49,14 +49,15 @@ const InscriptionForms = () => {
   //useState pour l'affichage de confirmation de création de compte
   const [confirm, setConfirm] = useState(false);
   const displayConfirm = () => {
-    setConfirm('true');
+    setConfirm(true);
   };
 
   const onSubmitHandler = (data) => {
     console.log({ data });
     reset();
     // Requête post à l'API avec axios
-    axios.post("https://wonderouman.vercel.app/users/signup",{
+    //axios.post("https://wonderouman.vercel.app/users/signup",{
+     axios.post("http://localhost:4000/users/signup", {
       email : data.email,
       firstname : data.firstname,
       lastname : data.lastname,
@@ -64,6 +65,7 @@ const InscriptionForms = () => {
       streetNumber : data.streetNumber,
       zipCode : data.zipCode,
       city : data.city,
+      admin : false
     })
     .then((res) => {
       console.log(res.data)

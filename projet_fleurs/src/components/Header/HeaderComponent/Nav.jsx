@@ -2,11 +2,16 @@ import React from "react";
 // import Logo from "../../../img/logo_720.jpg";
 import Logo from "../../../img/logo_fleur.png";
 import { Link } from "react-router-dom";
-import PanierIcon from "../../../img/basket.png";
+import PanierIcon from "../../../img/panier.png";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 import LoginIcon from "../../../img/new_user.png";
 import AdminIcon from "../../../img/admin.png";
 
-const Nav = () => {
+const Nav = ({loggin, setLoggin}) => {
+  console.log("Nav", loggin);
+
+
   return (
     <>
       <header className="flex justify-between items-center">
@@ -27,6 +32,14 @@ const Nav = () => {
                 {" "}
                 <img
                   src={PanierIcon}
+                  className="h-10 w-10 rounded hover:shadow-xl "
+                  alt="panier"
+                />
+              </li>
+            </Link>
+            {/* si utilisateur connecté : bouton déconnection, sinon : bouton connexion */}
+            { loggin === true ? <LogoutButton loggin={loggin} setLoggin={setLoggin} />  : <LoginButton />}
+
                   alt="Logo panier"
                   className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
                 />
