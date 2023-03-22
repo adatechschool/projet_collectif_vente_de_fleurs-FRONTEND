@@ -56,7 +56,6 @@ const HomePage = () => {
     );
     setPosts(responsePosts.data);
     setLoading(false);
-    console.log(responsePosts.data);
   };
 
   useEffect(() => {
