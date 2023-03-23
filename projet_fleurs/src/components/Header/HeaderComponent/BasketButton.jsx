@@ -1,13 +1,12 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginIcon from "../../../img/user.png";
+import BasketIcon from "../../../img/basket.png";
 
-const LoginButton = () => {
+const BasketButton = () => {
     return (
-        <Link to="/users/signin">
+        <Link to="/panier">
         <li className="py-2 px-4">
           <img
-            src={LoginIcon}
+            src={BasketIcon}
             className="h-10 w-10 rounded hover:shadow-xl"
             alt="login"
           />
@@ -16,4 +15,4 @@ const LoginButton = () => {
     )
 }
 
-export default LoginButton;
+export default BasketButton;

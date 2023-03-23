@@ -1,13 +1,12 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginIcon from "../../../img/user.png";
+import AdminIcon from "../../../img/admin.png";
 
-const LoginButton = () => {
+const AdminButton = () => {
     return (
-        <Link to="/users/signin">
+        <Link to="/admin">
         <li className="py-2 px-4">
           <img
-            src={LoginIcon}
+            src={AdminIcon}
             className="h-10 w-10 rounded hover:shadow-xl"
             alt="login"
           />
@@ -16,4 +15,4 @@ const LoginButton = () => {
     )
 }
 
-export default LoginButton;
+export default AdminButton;

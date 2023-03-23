@@ -1,9 +1,9 @@
 import React from "react";
 import Accueil from "../../../img/fleurs_accueil.jpg";
-import Nav from "../../Header/HeaderComponent/Nav";
-import Banner from "../../Header/HeaderComponent/Banner";
+// import Nav from "../../Header/HeaderComponent/Nav";
+// import Banner from "../../Header/HeaderComponent/Banner";
 
-const Bandeau = () => {
+const Bandeau = ({setActiveCategory}) => {
   return (
     <>
       {/* <Banner /> */}
@@ -23,6 +23,7 @@ const Bandeau = () => {
             id="button"
             type="submit"
             className="bg-pink-900 shadow hover:bg-pink-700 text-white font-bold rounded-full p-3 w-40"
+            onClick={(e) => setActiveCategory("")}
           >
             Notre collection
           </button>

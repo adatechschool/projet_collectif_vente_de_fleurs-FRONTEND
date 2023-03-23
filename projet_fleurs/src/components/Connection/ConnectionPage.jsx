@@ -44,7 +44,6 @@ const ConnectionPage = ({loggin, setLoggin}) => {
     reset()
     // Requête post à l'API avec axios
     axios.post("https://wonderouman.vercel.app/users/signin",{
-    //axios.post("http://localhost:4000/users/signin", {
       email : data.email,
       password : data.password,
     })
