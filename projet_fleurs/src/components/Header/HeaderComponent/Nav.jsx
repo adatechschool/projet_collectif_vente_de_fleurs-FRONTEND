@@ -2,10 +2,9 @@ import React from "react";
 // import Logo from "../../../img/logo_720.jpg";
 import Logo from "../../../img/logo_fleur.png";
 import { Link } from "react-router-dom";
-import PanierIcon from "../../../img/panier.png";
+import PanierIcon from "../../../img/basket.png";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
-import LoginIcon from "../../../img/new_user.png";
 import AdminIcon from "../../../img/admin.png";
 
 const Nav = ({loggin, setLoggin}) => {
@@ -15,15 +14,17 @@ const Nav = ({loggin, setLoggin}) => {
   return (
     <>
       <header className="flex justify-between items-center">
+
         <div className="flex justify-between items-center">
           {" "}
           <Link to="/">
-            <img src={Logo} alt="Logo" className="h-20 p-2" />
+            <img src={Logo} alt="Logo" className="h-16 p-1" />
           </Link>
           <Link to="/">
             <h1 className="text-xl text-green-900 body-font font-Yeseva">Wonderflower</h1>
           </Link>
         </div>
+
         <div>
           <ul className="flex">
             {/* si l'utilisateur est connecté avec son id, il a accès à son panier. ex: url localhost:3000/panier/1 */}
@@ -47,7 +48,9 @@ const Nav = ({loggin, setLoggin}) => {
               </li>
             {/* </Link> */}
             {/* Inscription si pas de compte, sinon connexion */}
-            <Link to="/users/signin">
+
+            {/* ANCIEN LOG IN */}
+            {/* <Link to="/users/signin">
               <li className="p-4">
                 <img
                   src={LoginIcon}
@@ -55,13 +58,14 @@ const Nav = ({loggin, setLoggin}) => {
                   className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
                 />
               </li>
-            </Link>
+            </Link> */}
+
             <Link to="/admin">
               <li className="p-4">
                 <img
                   src={AdminIcon}
                   alt="Logo admin"
-                  className="h-10 w-10 rounded hover:shadow-xl hover:rounded-full"
+                  className="h-10 w-10 rounded hover:shadow-xl"
                 />
               </li>
             </Link>

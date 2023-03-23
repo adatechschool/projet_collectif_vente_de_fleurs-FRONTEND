@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+// import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = ({ categories, setActiveCategory, activeCategory }) => {
   const [nav, setNav] = useState(false);
@@ -9,7 +9,7 @@ const Navbar = ({ categories, setActiveCategory, activeCategory }) => {
     setNav(!nav);
   };
   return (
-    <div className="mx-40 relative flex items-center justify-center text-green-800 text-xl font-bold">
+    <div className="mx-40 relative flex items-center justify-center text-green-800 text-xl font-bold text-center">
       <ul className="flex space-x-40">
         {categories.map((category) => (
           <li className="p-4" onClick={(e) => setActiveCategory(category)}>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import LoginIcon from "../../../img/login.png";
+import LoginIcon from "../../../img/user.png";
 
 const LoginButton = () => {
     return (
         <Link to="/users/signin">
-        <li className="p-5">
+        <li className="p-3">
           <img
             src={LoginIcon}
             className="h-10 w-10 rounded hover:shadow-xl"

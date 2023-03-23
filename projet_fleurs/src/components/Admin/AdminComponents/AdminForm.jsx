@@ -15,11 +15,10 @@ const schema = yup.object().shape({
     price: yup.number().positive().integer().required(),
     size: yup.string().required(),
     stock: yup.number().positive().integer().required(),
-    fleur: yup.boolean().required(),
-    plante: yup.boolean().required(),
-    intérieur: yup.boolean().required(),
-    extérieur: yup.boolean().required(),
-    // images: yup.array().of(yup.string().required()),
+    fleur: yup.boolean(),
+    plante: yup.boolean(),
+    intérieur: yup.boolean(),
+    extérieur: yup.boolean(),
     images: yup.string().required(),
   });
 
@@ -45,7 +44,11 @@ const AdminForm = () => {
         reset(); //efface le formulaire
 
         // Requête post à l'API avec axios
-        axios.post("https://wonderouman.vercel.app/products",{
+        const token = sessionStorage.getItem("token");
+        const config = { headers : { Authorization: `Bearer ${token}` } }
+        // Requête post à l'API avec axios
+        //axios.post("https://wonderouman.vercel.app/products", {
+        axios.post("http://localhost:4000/products", {
             name : data.name,
             description : data.description,
             price : data.price,
@@ -53,11 +56,12 @@ const AdminForm = () => {
             stock : data.stock,
             images : data.images,
             //category : data.category,
+            //category: "toto",
             fleur : data.fleur,
             plante : data.plante,
             intérieur : data.intérieur,
             extérieur : data.extérieur,
-        })
+        }, config)
         .then((res) => {
             console.log(res.data)
             if(res.data === 'Product created !') { 
