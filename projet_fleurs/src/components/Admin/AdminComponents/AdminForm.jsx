@@ -47,8 +47,8 @@ const AdminForm = () => {
         const token = sessionStorage.getItem("token");
         const config = { headers : { Authorization: `Bearer ${token}` } }
         // Requête post à l'API avec axios
-        //axios.post("https://wonderouman.vercel.app/products", {
-        axios.post("http://localhost:4000/products", {
+        axios.post("https://wonderouman.vercel.app/products", {
+        // axios.post("http://localhost:4000/products", {
             name : data.name,
             description : data.description,
             price : data.price,
