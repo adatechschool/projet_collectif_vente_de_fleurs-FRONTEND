@@ -7,17 +7,25 @@ function Products(props) {
 
   return (
     <div className="w-3/4 border-2 flex justify-evenly mt-[30px]">
-      <ul className="flex">
-        <li>
-          <img src={props.img} alt="fleurs" className="w-[300px] h-[200px]" />
+      <ul className="flex justify-evenly border-2 items-center w-3/4">
+        <li >
+          <img src={props.img} alt="fleurs" className="w-[200px] h-[150px]" />
         </li>
-        <li>
-          <h3>{props.name}</h3>
+        <li >
+          <b>Produit</b>
+          <p>{props.name}</p>
         </li>
-        <li>
-          <b className="text-[#227C20]">{props.price} euros</b>
+        <li >
+          <b>Prix</b>
+          <p className="text-[#227C20]">{props.price}€ </p>
         </li>
-        <li>{props.quantity.length}</li>
+        <li >
+          <b>Quantité</b>
+          <p>
+
+          <input className="w-[20px]" type="text" value={props.quantity.length} /> 
+          </p>
+        </li>
       </ul>
     </div>
     // <div className="w-3/4 border-2 flex justify-evenly items-center mt-[30px]">

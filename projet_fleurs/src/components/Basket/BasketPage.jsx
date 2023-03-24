@@ -13,10 +13,10 @@ export default function BasketPage(props) {
   // console.log(userId)
 
   const { setBasket, basket } = useContext(BasketContext);
-  console.log(basket);
+  //console.log(basket);
 
   let { userId } = useParams();
-  console.log(userId);
+  //console.log(userId);
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,16 +34,36 @@ export default function BasketPage(props) {
   // useEffect(() => {
   //   fetchPosts();
   // }, []);
+
   let result = [];
-  basket.map((product) => (result.push(product._id), console.log(result)));
+  basket.map((product) => (result.push(product._id)));
+  console.log("basket", basket);
+  
+  const takeOrder = (data) =>{
+    // console.log("basket.name :", data.name) 
+    // console.log("basket=========>", data.price)
+    //axios.post("https://wonderouman.vercel.app/orders",{
+      axios.post("http://localhost:4000/orders", {
+      userId: sessionStorage.getItem("userId"), 
+      products : data
+    })
+    .then((res)=>{
+      console.log(res.data)
+    })
+    .catch((error, res)=>{
+      console.log(res.data)
+      console.log("error >>>>>>>>", error)
+    })
+  };
+
 
   return (
   <>
       {/* <Header/> */}
 
     <div className="w-full justify-center mt-[30px]">
-    
       <h1 className="text-center text-4xl font-Yeseva m-5">Mon panier</h1>
+      <button  onClick={()=>takeOrder(basket)}>passer ma commande</button>
 
       {/* parcourire chaque produit de la composant Products */}
 
