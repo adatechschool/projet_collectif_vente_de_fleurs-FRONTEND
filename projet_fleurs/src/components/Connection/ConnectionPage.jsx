@@ -41,35 +41,34 @@ const ConnectionPage = ({ loggin, setLoggin }) => {
   const onSubmitHandler = (data) => {
     reset();
     // Requête post à l'API avec axios
-    axios
-      .post("https://wonderouman.vercel.app/users/signin", {
-        // axios.post("http://localhost:4000/users/signin", {
-        email: data.email,
-        password: data.password,
-      })
-      .then((res) => {
-        // réponse du serveur : objet contenant l'ID utilisateur et le token (cf back)
-        console.log(res.data);
 
-        if (res.status === 200) {
-          // stockage de l'ID et du token en sessionStorage (attention : valable pour un seul onglet,
-          // s'efface à la fermeture du navigateur !)
-          // -------   Amélioration possible : utiliser un gestionnaire plus sécurisé -----
-          sessionStorage.setItem("userId", res.data.userId);
-          sessionStorage.setItem("token", res.data.token);
-          sessionStorage.setItem("admin", res.data.admin);
-          setLoggin(true);
-
-          // Récupération des deux variables id et token :
-          console.log("id stocké", sessionStorage.getItem("userId"));
-          console.log("token stocké", sessionStorage.getItem("token"));
-          navigate("../");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        displayConfirm();
-      });
+    axios.post("https://wonderouman.vercel.app/users/signin",{
+      email : data.email,
+      password : data.password,
+    })
+    .then((res) => {
+      // réponse du serveur : objet contenant l'ID utilisateur et le token (cf back)
+      //console.log(res.data);
+           
+      if(res.status === 200) { 
+        // stockage de l'ID et du token en sessionStorage (attention : valable pour un seul onglet,
+        // s'efface à la fermeture du navigateur !)
+        // -------   Amélioration possible : utiliser un gestionnaire plus sécurisé -----
+        sessionStorage.setItem("userId", res.data.userId)
+        sessionStorage.setItem("token", res.data.token)
+        sessionStorage.setItem('admin', res.data.admin)
+        setLoggin(true);
+        
+        // Récupération des deux variables id et token :
+        // console.log("id stocké", sessionStorage.getItem("userId"))
+        // console.log("token stocké", sessionStorage.getItem("token"))
+        navigate('../')
+      }       
+    })
+    .catch((error) => {
+      console.log(error)
+      displayConfirm();
+    });
   };
 
   return (

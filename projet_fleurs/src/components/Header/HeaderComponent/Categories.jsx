@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+// import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = ({ categories, setActiveCategory, activeCategory }) => {
   const [nav, setNav] = useState(false);
@@ -9,17 +9,19 @@ const Navbar = ({ categories, setActiveCategory, activeCategory }) => {
     setNav(!nav);
   };
   return (
-    <div className="mx-40 relative flex items-center justify-center text-green-800 text-xl font-bold">
-      <ul className="flex space-x-40">
+    <div className="shadow-md pt-2 bg-pink-50 bg-opacity-20">
+    <div className="flex items-center justify-center text-green-800 text-xl font-bold text-center">
+      <ul className="flex flex-wrap items-center space-x-40 ">
         {categories.map((category) => (
-          <li className="p-4" onClick={(e) => setActiveCategory(category)}>
+          <li className="p-4 hover:text-pink-700 hover:cursor-pointer" onClick={(e) => setActiveCategory(category)}>
             {category.toUpperCase()}
           </li>
         ))}
-        <li className="p-4" onClick={(e) => setActiveCategory("")}>
+        <li className="p-4 hover:text-pink-700 hover:cursor-pointer" onClick={(e) => setActiveCategory("")}>
           TOUTE LA COLLECTION
         </li>
       </ul>
+    </div>
     </div>
 
     /* When we click, if nav is not true, show Close else Menu

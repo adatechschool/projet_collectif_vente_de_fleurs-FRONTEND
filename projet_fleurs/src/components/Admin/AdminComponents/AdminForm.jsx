@@ -15,11 +15,10 @@ const schema = yup.object().shape({
     price: yup.number().positive().integer().required(),
     size: yup.string().required(),
     stock: yup.number().positive().integer().required(),
-    fleur: yup.boolean().required(),
-    plante: yup.boolean().required(),
-    intérieur: yup.boolean().required(),
-    extérieur: yup.boolean().required(),
-    // images: yup.array().of(yup.string().required()),
+    fleur: yup.boolean(),
+    plante: yup.boolean(),
+    intérieur: yup.boolean(),
+    extérieur: yup.boolean(),
     images: yup.string().required(),
   });
 
@@ -45,7 +44,10 @@ const AdminForm = () => {
         reset(); //efface le formulaire
 
         // Requête post à l'API avec axios
-        axios.post("https://wonderouman.vercel.app/products",{
+        const token = sessionStorage.getItem("token");
+        const config = { headers : { Authorization: `Bearer ${token}` } }
+        // Requête post à l'API avec axios
+        axios.post("https://wonderouman.vercel.app/products", {
             name : data.name,
             description : data.description,
             price : data.price,
@@ -53,11 +55,12 @@ const AdminForm = () => {
             stock : data.stock,
             images : data.images,
             //category : data.category,
+            //category: "toto",
             fleur : data.fleur,
             plante : data.plante,
             intérieur : data.intérieur,
             extérieur : data.extérieur,
-        })
+        }, config)
         .then((res) => {
             console.log(res.data)
             if(res.data === 'Product created !') { 
@@ -80,10 +83,10 @@ const AdminForm = () => {
     <>
     <AdminPage/>
 
-    <div className="flex justify-center items-center mt-10">
+    {/* <div className="flex justify-center items-center mt-10"> */}
         
         {/* Formulaire */}
-        <div className="bg-white shadow-xl rounded p-5">
+        <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
 
         <form
             class="flex flex-col space-y-2"
@@ -94,7 +97,7 @@ const AdminForm = () => {
             <label className="p-1">
                 <input
                     type="text"
-                    className="h-10 border border-gray-800 rounded px-3"
+                    className="h-10 w-full border border-gray-800 rounded px-3"
                     placeholder="Nom du produit"
                     name="name"
                     {...register('name')}
@@ -105,7 +108,7 @@ const AdminForm = () => {
             <label className="p-1">
                 <textarea
                     type="text"
-                    className="h-24 border border-gray-800 rounded px-3"
+                    className="h-24 w-full border border-gray-800 rounded px-3"
                     placeholder="Description du produit"
                     name="description"
                     {...register('description')}
@@ -116,7 +119,7 @@ const AdminForm = () => {
             <label className="p-1">
                 <input
                     type="text"
-                    className="h-10 border border-gray-800 rounded px-3"
+                    className="h-10 w-full border border-gray-800 rounded px-3"
                     placeholder="Prix du produit"
                     name="price"
                     {...register('price')}
@@ -127,7 +130,7 @@ const AdminForm = () => {
             <label className="p-1">
                 <input
                     type="text"
-                    className="h-10 border border-gray-800 rounded px-3"
+                    className="h-10 w-full border border-gray-800 rounded px-3"
                     placeholder="Taille du produit"
                     name="size"
                     {...register('size')}
@@ -152,7 +155,7 @@ const AdminForm = () => {
             <label className="p-1">
                 <input
                     type="text"
-                    className="h-10 border border-gray-800 rounded px-3"
+                    className="h-10 w-full border border-gray-800 rounded px-3"
                     placeholder="Stock du produit"
                     name="stock"
                     {...register('stock')}
@@ -165,8 +168,8 @@ const AdminForm = () => {
             <label className="p-1">
                 <input
                     type="text"
-                    className="h-10 border border-gray-800 rounded px-3"
-                    placeholder="Image principale du produit"
+                    className="h-10 w-full border border-gray-800 rounded px-3"
+                    placeholder="Image principale du produit (lien)"
                     name="images"
                     {...register('images')}
                 />
@@ -186,50 +189,55 @@ const AdminForm = () => {
 
             {/* CATEGORIES */}
 
-            <div className="border border-gray-800 rounded px-3 pt-1 m-1 flex flex-col">
-                <label >
-                    <input
-                        type="checkbox"
-                        name="fleur"
-                        defaultChecked={checked}
-                        onChange={handleChange}
-                        {...register('fleur')}
-                    />
-                    Fleur 
-                </label>
+            <div className="flex border border-gray-800 rounded px-3 pt-1 m-1">
 
-                <label>
-                    <input
-                        type="checkbox"
-                        name="plante"
-                        defaultChecked={checked}
-                        onChange={handleChange}
-                        {...register('plante')}
-                    />
-                    Plante verte 
-                </label>
+                <div className="flex flex-col pr-10">
+                    <label >
+                        <input
+                            type="checkbox"
+                            name="fleur"
+                            defaultChecked={checked}
+                            onChange={handleChange}
+                            {...register('fleur')}
+                        />
+                        Fleur 
+                    </label>
 
-                <label>
-                    <input
-                        type="checkbox"
-                        name="intérieur"
-                        defaultChecked={checked}
-                        onChange={handleChange}
-                        {...register('intérieur')}
-                    />
-                    Intérieur 
-                </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="plante"
+                            defaultChecked={checked}
+                            onChange={handleChange}
+                            {...register('plante')}
+                        />
+                        Plante verte 
+                    </label>
+                </div>
 
-                <label>
-                    <input
-                        type="checkbox"
-                        name="extérieur"
-                        defaultChecked={checked}
-                        onChange={handleChange}
-                        {...register('extérieur')}
-                    />
-                    Extérieur 
-                </label>
+                <div className="flex flex-col">
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="intérieur"
+                            defaultChecked={checked}
+                            onChange={handleChange}
+                            {...register('intérieur')}
+                        />
+                        Intérieur 
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="extérieur"
+                            defaultChecked={checked}
+                            onChange={handleChange}
+                            {...register('extérieur')}
+                        />
+                        Extérieur 
+                    </label>
+                </div>
             </div>
 
             <button type="submit" class="text-center bg-green-900 hover:bg-green-700 rounded-full text-white py-2 font-bold">
@@ -245,7 +253,7 @@ const AdminForm = () => {
 
         </div>
 
-    </div>
+    {/* </div> */}
     </>
     );
 };
