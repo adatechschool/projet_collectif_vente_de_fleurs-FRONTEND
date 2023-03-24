@@ -60,28 +60,34 @@ export default function BasketPage(props) {
 
 
   return (
-  <>
-      {/* <Header/> */}
-
-    <div className="w-full justify-center mt-[30px]">
-      <h1 className="text-center text-4xl font-Yeseva m-5">Mon panier</h1>
-      <button  onClick={()=>takeOrder(basket)}>passer ma commande</button>
-
-      {/* parcourire chaque produit de la composant Products */}
-
-      {basket.map((product, index) => (
-        <div id="container" className="w-full flex justify-center">
-          {/* où on structure l'ffichages nome, description, prix */}
-          <Products
-            produitId={product._id}
-            name={product.name}
-            img={product.images[0]}
-            price={product.price}
-            quantity={result.filter((id) => id == product._id)}
-          />
-        </div>
-      ))}
-    </div>
-    </>
-  );
+    <>
+        {/* <Header/> */}
+  
+      <div className="flex flex-col justify-center items-center mt-[30px]">
+  
+        <h1 className="text-center text-4xl font-Yeseva m-5">Mon panier</h1>
+  
+        {/* parcourir chaque produit du composant Products */}
+  
+        {basket.map((product, index) => (
+          <div id="container" className=" w-full flex justify-center">
+            {/* où on structure l'ffichages nome, description, prix */}
+            <Products
+              produitId={product._id}
+              name={product.name}
+              img={product.images[0]}
+              price={product.price}
+              quantity={result.filter((id) => id == product._id)}
+            />
+          </div>
+        ))}
+  
+        <button
+          onClick={()=>takeOrder(basket)}
+          className="text-center bg-green-700 hover:bg-green-900 rounded-full text-white p-2 mt-6 font-bold w-48"
+        >Passer ma commande</button>
+  
+      </div>
+      </>
+    );
 }

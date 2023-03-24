@@ -6,20 +6,20 @@ function Products(props) {
   // console.log(basket);
 
   return (
-    <div className="w-3/4 border-2 flex justify-evenly mt-[30px]">
-      <ul className="flex justify-evenly border-2 items-center w-3/4">
-        <li >
+    <div className="w-3/4 flex justify-evenly mt-[30px]">
+      <ul className="flex justify-between border-2 items-center w-3/5">
+        <li className="w-1/4" >
           <img src={props.img} alt="fleurs" className="w-[200px] h-[150px]" />
         </li>
-        <li >
+        <li className="w-1/4 text-center">
           <b>Produit</b>
           <p>{props.name}</p>
         </li>
-        <li >
-          <b>Prix</b>
-          <p className="text-[#227C20]">{props.price}€ </p>
+        <li className="w-1/4 text-center">
+          <b className="">Prix</b>
+          <p className="">{props.price}€ </p>
         </li>
-        <li >
+        <li className="w-1/4 text-center" >
           <b>Quantité</b>
           <p>
 
