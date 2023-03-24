@@ -1,9 +1,10 @@
 import React from "react";
 
 const InscriptionHeader = () => {
-    return <h1 className="flex justify-center text-green-800 text-2xl font-bold m-5">
-        Créer un nouveau compte
-    </h1>
-}
+    return (
+        <h1 class="text-3xl font-medium text-center">
+            Créer un nouveau compte
+        </h1>);
+};
 
 export default InscriptionHeader;
