@@ -40,13 +40,15 @@ export default function BasketPage(props) {
   console.log("basket", basket);
   
   const takeOrder = (data) =>{
+    // Requête post à l'API avec axios
+    const token = sessionStorage.getItem("token");
+    const config = { headers : { Authorization: `Bearer ${token}` } }
     // console.log("basket.name :", data.name) 
     // console.log("basket=========>", data.price)
-    //axios.post("https://wonderouman.vercel.app/orders",{
-      axios.post("http://localhost:4000/orders", {
+    axios.post("https://wonderouman.vercel.app/orders",{
       userId: sessionStorage.getItem("userId"), 
       products : data
-    })
+    },config)
     .then((res)=>{
       console.log(res.data)
     })
