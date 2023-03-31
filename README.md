@@ -1,4 +1,5 @@
 # WonderFlower <sup>Frontend</sup>
+Voir le repo [backend](https://github.com/adatechschool/projet_collectif_vente_de_fleurs-BACKEND)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
@@ -10,7 +11,7 @@ __*5<sup>ème</sup> projet proposé par [Ada Tech School](https://adatechschool.
 - __Dates:__ du 13 au 23 Mars 2023
 - __Collaborateurs:__ [Audrey Doyen](https://github.com/Dre-Drey), [Angéla Duton](https://github.com/Angy41), [Anastasia Korotkova](https://github.com/Nastiakor), [Angelina Liborom](https://github.com/AngelinaLbm), [Hélène Veber](https://github.com/HeleneVeber), [Iris Gaudin](https://github.com/irisgaudin), [Marie Koscianski-Ducharlet](https://github.com/MarieKosDuc), [Morgane Lepine Utter](https://github.com/morganelepine), [Rouhullah KARIMI](https://github.com/Huor97)
 - __Objectifs:__ 
-  - Concevoir d'un site e-commerce 
+  - Concevoir un site e-commerce 
   - Créer des comptes donnant des droits différents aux utilisateurs: 
       - Une page admin permettant la gestion du stock.
       - Une page client permettant d'effectuer une commande
