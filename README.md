@@ -29,7 +29,7 @@ Utilisation du __router React__ pour permettre la navigation entre les différen
 ### Page d'inscription client
 Formulaire créé avec les librairies __React Hook Forms__ et __Yup__. La requête de création d'un nouveau compte n'est envoyée au back-end que si le résolveur Yup valide que l'utilisateur a correctement rempli tous les champs (aucun champ incomplet, typage des champs email et code postal, correspondance des champs de saisie de mot de passe).
 
-### Page de connection
+### Page de connexion
 Champ de saisie du mot de passe qui peut être rendu visible en cliquant sur un bouton pour vérification. Récupération d'un token d'authentification et stockage en session storage.
 
 ### Navbar qui s'adapte Loggin/Logout
